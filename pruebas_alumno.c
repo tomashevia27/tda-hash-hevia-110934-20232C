@@ -3,18 +3,6 @@
 #include "src/hash_estructura_privada.h"
 #include <stdlib.h>
 
-size_t funcion_hash1(const char *clave)
-{
-	size_t numero = 5381;
-	int entero;
-
-	while ((entero = *clave++)) {
-		numero = (((numero << 5) + numero) + (size_t)entero);
-	}
-
-	return numero;
-}
-
 bool funcion_bool(const char *clave, void *valor, void *aux)
 {
 	if (!aux)
@@ -36,6 +24,10 @@ void pruebas()
 		hash_capacidad0 && hash_capacidad0->capacidad == 3,
 		"Se prueba crear el hash con una capacidad inicial menor a 3");
 	hash_destruir(hash_capacidad0);
+
+
+
+
 
 	pa2m_nuevo_grupo(
 		"\n======================== INSERTAR ========================");
@@ -91,6 +83,11 @@ void pruebas()
 			     anterior == elemento8,
 		     "se prueba actualizar un elemento");
 
+
+
+
+
+
 	pa2m_nuevo_grupo(
 		"\n======================== ELIMINAR ========================");
 	void *elemento_eliminado = hash_quitar(NULL, "clave11");
@@ -112,6 +109,11 @@ void pruebas()
 		elemento_eliminado == NULL,
 		"si se intenta eliminar un elemento ya eliminado, devuelve NULL");
 
+
+
+
+
+
 	pa2m_nuevo_grupo(
 		"\n======================== OBTENER ========================");
 	void *elemento_obtenido = hash_obtener(NULL, "clave11");
@@ -130,6 +132,11 @@ void pruebas()
 	pa2m_afirmar(elemento_obtenido == elemento4,
 		     "si se intenta obtener un elemento ya obtenido");
 
+
+
+
+
+
 	pa2m_nuevo_grupo(
 		"\n======================== CONTENER ========================");
 	pa2m_afirmar(!hash_obtener(hash, "clave11"),
@@ -142,6 +149,11 @@ void pruebas()
 	pa2m_afirmar(hash_obtener(hash, "clave4") == elemento4,
 		     "se puede obtener un elemento");
 
+
+
+
+
+
 	pa2m_nuevo_grupo(
 		"\n======================== CANTIDAD ========================");
 	pa2m_afirmar(hash_cantidad(NULL) == 0,
@@ -153,6 +165,11 @@ void pruebas()
 		     "la cantidad de elementos de un hash es correcta");
 	hash_destruir(hash_vacio);
 	hash_destruir(hash);
+
+
+
+
+
 
 	pa2m_nuevo_grupo(
 		"\n======================== ITERADOR INTERNO ========================");
@@ -186,59 +203,9 @@ void pruebas()
 	hash_destruir(hash);
 }
 
-void prueba_funcion_hash()
-{
-	hash_t *hash = hash_crear(100000);
-	pa2m_nuevo_grupo(
-		"\n======================== PRUEBA FUNCION HASH ========================");
-	size_t posicion_hash = funcion_hash1("clave1") % hash->capacidad;
-	pa2m_afirmar(posicion_hash < hash->capacidad,
-		     "valor correcto funcion hash");
-	posicion_hash = funcion_hash1("ggrebdfbfhssrt") % hash->capacidad;
-	pa2m_afirmar(posicion_hash < hash->capacidad,
-		     "valor correcto funcion hash");
-	posicion_hash = funcion_hash1("dsdeaf") % hash->capacidad;
-	pa2m_afirmar(posicion_hash < hash->capacidad,
-		     "valor correcto funcion hash");
-	posicion_hash = funcion_hash1("aadsfdsg") % hash->capacidad;
-	printf("posicion hash: %li\n", posicion_hash);
-	pa2m_afirmar(posicion_hash < hash->capacidad,
-		     "valor correcto funcion hash");
-	posicion_hash = funcion_hash1("bfnghgfh") % hash->capacidad;
-	pa2m_afirmar(posicion_hash < hash->capacidad,
-		     "valor correcto funcion hash");
-	posicion_hash = funcion_hash1("cngfjfhd") % hash->capacidad;
-	pa2m_afirmar(posicion_hash < hash->capacidad,
-		     "valor correcto funcion hash");
-	posicion_hash = funcion_hash1("fdgdafgser") % hash->capacidad;
-	pa2m_afirmar(posicion_hash < hash->capacidad,
-		     "valor correcto funcion hash");
-	posicion_hash = funcion_hash1("fbbcxbb") % hash->capacidad;
-	pa2m_afirmar(posicion_hash < hash->capacidad,
-		     "valor correcto funcion hash");
-	posicion_hash =
-		funcion_hash1(
-			"rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr") %
-		hash->capacidad;
-	pa2m_afirmar(posicion_hash < hash->capacidad,
-		     "valor correcto funcion hash");
-	posicion_hash = funcion_hash1("1") % hash->capacidad;
-	pa2m_afirmar(posicion_hash < hash->capacidad,
-		     "valor correcto funcion hash");
-	posicion_hash = funcion_hash1("ysyaaaaa") % hash->capacidad;
-	pa2m_afirmar(posicion_hash < hash->capacidad,
-		     "valor correcto funcion hash");
-	posicion_hash =
-		funcion_hash1("_______________________________________") %
-		hash->capacidad;
-	pa2m_afirmar(posicion_hash < hash->capacidad,
-		     "valor correcto funcion hash");
-}
-
 int main()
 {
 	pruebas();
-	//prueba_funcion_hash();
 
 	return pa2m_mostrar_reporte();
 }

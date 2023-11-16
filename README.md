@@ -4,7 +4,7 @@
 
 # TDA HASH
 
-## Repositorio de (Nombre Apellido) - (Padrón) - (Mail)
+## Repositorio de Tomas Hevia - 110934 - thevia@fi.uba.ar
 
 - Para compilar:
 
@@ -82,10 +82,10 @@ Ya que se tiene acceso inmediato a las direcciones de memoria almacenadas en el 
 Los valores se guardan en pares clave-valor, donde la clave es importante para asignarle lugar al par dentro del diccionario, y mediante esa clave se realiza la busqueda del valor en el diccionario.
 
 PREGUNTA 2: Qué es una función de hash y qué características debe tener?
-La funcion de hash es una funcion que transforma la clave recibida en un valor numerico, el cual se utiliza para asignar la posicion del apr clave-valor en el diccionario. Las caracteristicas que debe tener es que el resultado debe ser mayor que 0 y menor que la capacidad que tiene el diccionario para almacenar elementos, ademas siempre que recibe una clave, esa clave debe retornar el mismo valor numerico.
+La funcion de hash es una funcion que transforma la clave recibida en un valor numerico, el cual se utiliza para asignar la posicion del par clave-valor en el diccionario. Las caracteristicas que debe tener es que el resultado debe ser mayor que 0 y menor que la capacidad que tiene el diccionario para almacenar elementos, ademas siempre que recibe una clave, esa clave debe retornar el mismo valor numerico.
 
 PREGUNTA 3: Qué es una tabla de Hash y los diferentes métodos de resolución de colisiones vistos (encadenamiento, probing, zona de desborde)?
-Una tabla de hash es una estructura que contiene valores (pares clave-valor), estos valores tienen una posicion asignada en la tabla de hash. la tabla guarda los valores junto con una clave, esta clave (a traves de la funcion de hash) sirve para asignar la posicion dentro de la tabla.
+Una tabla de hash es una estructura que contiene valores (pares clave-valor), estos valores tienen una posicion asignada en la tabla de hash. la tabla guarda los valores junto con la clave, esta clave (a traves de la funcion de hash) sirve para asignar la posicion dentro de la tabla.
 La tabla de hash (junto con la funcion hash) permite guardar los valores y acceder a ellos muy facilmente, ya que sabemos la posicion en la que este valor se encuentra, esa es la gran ventaja de los diccionarios.
 Puede suceder que varias claves caigan en la misma posicion de la tabla, a esto se lo llama colisiones. Las colisiones se pueden resolver de diferentes formas:
 
