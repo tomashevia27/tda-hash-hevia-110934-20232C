@@ -25,10 +25,6 @@ void pruebas()
 		"Se prueba crear el hash con una capacidad inicial menor a 3");
 	hash_destruir(hash_capacidad0);
 
-
-
-
-
 	pa2m_nuevo_grupo(
 		"\n======================== INSERTAR ========================");
 	void *elemento = (void *)1;
@@ -83,11 +79,6 @@ void pruebas()
 			     anterior == elemento8,
 		     "se prueba actualizar un elemento");
 
-
-
-
-
-
 	pa2m_nuevo_grupo(
 		"\n======================== ELIMINAR ========================");
 	void *elemento_eliminado = hash_quitar(NULL, "clave11");
@@ -109,11 +100,6 @@ void pruebas()
 		elemento_eliminado == NULL,
 		"si se intenta eliminar un elemento ya eliminado, devuelve NULL");
 
-
-
-
-
-
 	pa2m_nuevo_grupo(
 		"\n======================== OBTENER ========================");
 	void *elemento_obtenido = hash_obtener(NULL, "clave11");
@@ -132,11 +118,6 @@ void pruebas()
 	pa2m_afirmar(elemento_obtenido == elemento4,
 		     "si se intenta obtener un elemento ya obtenido");
 
-
-
-
-
-
 	pa2m_nuevo_grupo(
 		"\n======================== CONTENER ========================");
 	pa2m_afirmar(!hash_obtener(hash, "clave11"),
@@ -149,11 +130,6 @@ void pruebas()
 	pa2m_afirmar(hash_obtener(hash, "clave4") == elemento4,
 		     "se puede obtener un elemento");
 
-
-
-
-
-
 	pa2m_nuevo_grupo(
 		"\n======================== CANTIDAD ========================");
 	pa2m_afirmar(hash_cantidad(NULL) == 0,
@@ -165,11 +141,6 @@ void pruebas()
 		     "la cantidad de elementos de un hash es correcta");
 	hash_destruir(hash_vacio);
 	hash_destruir(hash);
-
-
-
-
-
 
 	pa2m_nuevo_grupo(
 		"\n======================== ITERADOR INTERNO ========================");
